@@ -48,6 +48,8 @@
 #include "g2o/stuff/string_tools.h"
 #include "g2o/stuff/misc.h"
 
+#include <ros/ros.h>
+
 namespace g2o {
 
   using namespace std;
@@ -260,6 +262,8 @@ namespace g2o {
   }
 
   bool OptimizableGraph::addEdge(OptimizableGraph::Edge* e) {
+    ROS_WARN_STREAM("DEBUG --- Entered addEdge Function 1");
+  
     OptimizableGraph* g = e->graph();
 
     if (g != nullptr && g != this) {
@@ -289,6 +293,8 @@ namespace g2o {
 
   bool OptimizableGraph::addEdge(HyperGraph::Edge* e_)
   {
+    ROS_WARN_STREAM("DEBUG --- Entered addEdge Function 1");
+    
     OptimizableGraph::Edge* e = dynamic_cast<OptimizableGraph::Edge*>(e_);
     assert(e && "Edge does not inherit from OptimizableGraph::Edge");
     if (!e)
